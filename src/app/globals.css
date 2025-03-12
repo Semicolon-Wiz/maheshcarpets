@@ -1916,8 +1916,8 @@ footer {
     width: 100%;
     display: grid;
     /* grid-template-columns: repeat(auto-fit, 300px); */
-    grid-template-columns: repeat(auto-fit, 400px);
-    column-gap: 30px;
+    grid-template-columns: repeat(auto-fit, minmax(365px, 1fr));
+    column-gap: 20px;
     row-gap: 40px;
 
     .blog-cards-container {
@@ -1933,6 +1933,7 @@ footer {
         background-color: white;
         border-radius: 20px;
         overflow: hidden;
+        padding-bottom: 65px;
         transition: all 0.2s ease-in-out;
         box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px,
           rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
@@ -2018,9 +2019,10 @@ footer {
           }
         }
         .blog-btn {
-          position: relative;
+          position: absolute;
+          bottom: 15px;
+          right: 15px;
           width: 100%;
-          padding: 5px 20px 20px 20px;
 
           button {
             display: block;

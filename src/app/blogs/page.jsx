@@ -71,6 +71,36 @@ export default function page() {
                                 </div>
                             </div>
                         </div>
+
+                        <div className="blog-cards-container">
+                            <div className="blog-card-body">
+                                <div className="blog-card-img">
+                                    <Image src='/images/blogs/blog-image-03.jpeg' width={400} height={163} alt='blog' />
+                                </div>
+                                <div className="blog-badge">
+                                    <span>Carpets</span>
+                                    <span>Pets</span>
+                                </div>
+                                <div className="blog-title">
+                                    <h2>
+                                        <Link href='/blogs/how-to-choose-the-best-pet-friendly-carpets' >
+                                            How to Choose the Best Pet-Friendly Carpets: Durable, Safe, and Easy to Clean
+                                        </Link>
+                                    </h2>
+                                </div>
+                                <div className="blog-description">
+                                    <p>
+                                        If you’re a pet parent, you know that our furry companions bring so much joy, love, and, let’s be honest – mess! From muddy paws to accidental spills, choosing the right flooring can be a challenge. That’s where pet-friendly carpets come in. The right carpet can keep your home looking stylish while ensuring comfort, safety, and easy maintenance.
+                                    </p>
+                                </div>
+
+                                <div className="blog-btn">
+                                    <Link href='/blogs/how-to-choose-the-best-pet-friendly-carpets'>
+                                        <button>Read More</button>
+                                    </Link>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </section>

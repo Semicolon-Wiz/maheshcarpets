@@ -15,9 +15,10 @@ export async function generateMetadata({ params }) {
   try {
     const response = await axios.get(`${process.env.NEXT_PUBLIC_BASE_URL}/api/single-blog/${blogId}`);
     const blog = response.data.data;
-
+    
     return {
       title: `${blog.metaTitle}`,
+      description:`${blog.metaDesc}`
     };
   } catch (error) {
     console.error('Error fetching metadata:', error);

@@ -5,25 +5,17 @@ import Loader from "@/components/Loader/Loader";
 
 export default function Blogs({ loading, blog }) {
 
-  const bufferToBase64 = (buffer) => {
-    return `data:image/jpeg;base64,${Buffer.from(buffer).toString('base64')}`;
-  };
-
   return (
     <section className='admin-blogs-page'>
       {loading ? <Loader /> : (
         <div className="admin-blogs-container">
           {blog?.data?.map((data, index) => {
-            const base64Image = data.blog_img?.data
-              ? bufferToBase64(data.blog_img.data)
-              : '/images/blogs/blog-image-01.jpeg';
-
             return (
               <div className="blog-cards-container" key={index}>
                 <div className="blog-card-body">
                   <div className="blog-card-img">
                     <Image
-                      src={base64Image}
+                      src={data.blog_img}
                       width={400}
                       height={163}
                       alt='blog'

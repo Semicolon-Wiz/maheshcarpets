@@ -1,8 +1,6 @@
 import ContactUs from '@/components/Contact_us/ContactUs'
 import Footer from '@/components/Footor/Footer'
 import Navbar from '@/components/Navbar/Navbar'
-import Image from 'next/image'
-import Link from 'next/link'
 import React from 'react'
 import AllBlogList from './AllBlogList'
 

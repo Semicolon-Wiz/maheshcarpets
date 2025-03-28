@@ -12,7 +12,7 @@ export default function AddBlog({ blogData, setBlogData, disableBtn, setDisableB
   const editorRef = useRef();
   const imageref = useRef();
   const titleRef = useRef();
-
+  
   const handleChange = (e) => {
     const { name, value } = e.target;
     setBlogData((prev) => ({
@@ -47,6 +47,7 @@ export default function AddBlog({ blogData, setBlogData, disableBtn, setDisableB
     const markdownContent = editorRef.current?.getInstance().getMarkdown();
 
     const formData = new FormData();
+    formData.append("blogId", blogData?.blogId || null)
     formData.append('title', blogData.title);
     formData.append('metaTitle', blogData.metaTitle);
     formData.append('metaDescription', blogData.metaDescription);
@@ -160,7 +161,7 @@ export default function AddBlog({ blogData, setBlogData, disableBtn, setDisableB
             initialEditType="wysiwyg"
             useCommandShortcut={true}
             ref={editorRef}
-            initialValue='Start Writing Your Blog Here...'
+            initialValue={blogData?.content ? blogData?.content : ('Start Writing Your Blog Here...')}
             placeholder='Start Writing Your Blog Here...'
           />
         )}

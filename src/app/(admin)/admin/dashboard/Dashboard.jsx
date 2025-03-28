@@ -1,14 +1,11 @@
 'use client'
+import FormLoader from '@/components/FormLoader/FormLoader';
 import Loader from '@/components/Loader/Loader'
 import Image from 'next/image'
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 
-export default function Dashboard({ totalVisit, totalBlogs, blog, loading }) {
+export default function Dashboard({ totalVisit, totalBlogs, blog, loading, deleteBlog, updateBlog, updateBtnClicked }) {
   const [uniqueVisits, setUniqueVisits] = useState({});
-  const bufferToBase64 = (buffer) => {
-    return `data:image/jpeg;base64,${Buffer.from(buffer).toString('base64')}`;
-  };
-
   useEffect(() => {
     const fetchUniqueVisits = async () => {
       if (blog?.data?.length) {
@@ -32,7 +29,6 @@ export default function Dashboard({ totalVisit, totalBlogs, blog, loading }) {
 
     fetchUniqueVisits();
   }, [blog?.data]);
-
   return (
     <section className='admin-dashboard-page'>
       <div className="admin-dashboard-conatiner">
@@ -70,16 +66,12 @@ export default function Dashboard({ totalVisit, totalBlogs, blog, loading }) {
           ) : (
             <>
               {blog?.data?.map((data, index) => {
-                const base64Image = data.blog_img?.data
-                  ? bufferToBase64(data.blog_img.data)
-                  : '/images/blogs/blog-image-01.jpeg';
-
                 return (
                   <div className="blogs-actions" key={index}>
                     <div className="action-box blogs-action-image">
                       <div className="action-img-container">
                         <Image
-                          src={base64Image}
+                          src={data.blog_img}
                           width={200}
                           height={200}
                           alt='img'
@@ -100,12 +92,14 @@ export default function Dashboard({ totalVisit, totalBlogs, blog, loading }) {
                       </div>
                     </div>
                     <div className="action-box blog-action-btn">
-                      <div className="action-btn">
-                        <i className="hgi hgi-stroke hgi-pencil-edit-02"></i>
+                      <div className="action-btn" onClick={() => updateBlog(data.blog_slug, index)}>
+                        {updateBtnClicked === index ? <FormLoader /> : (
+                          <i className="hgi hgi-stroke hgi-pencil-edit-02"></i>
+                        )}
                       </div>
                     </div>
                     <div className="action-box blog-action-btn">
-                      <div className="action-btn">
+                      <div className="action-btn" onClick={() => deleteBlog(data.blog_slug)}>
                         <i className="hgi hgi-stroke hgi-delete-02"></i>
                       </div>
                     </div>

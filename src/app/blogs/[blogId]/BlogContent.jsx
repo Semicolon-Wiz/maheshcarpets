@@ -4,8 +4,7 @@ import axios from 'axios';
 import Navbar from '@/components/Navbar/Navbar';
 import ContactUs from '@/components/Contact_us/ContactUs';
 import Footer from '@/components/Footor/Footer';
-import FormLoader from '@/components/FormLoader/FormLoader';
-
+import Loader from "@/components/Loader/Loader";
 export default function BlogContent({ blogId }) {
     const [blog, setBlog] = useState(null);
     const [loading, setLoading] = useState(true);
@@ -29,13 +28,6 @@ export default function BlogContent({ blogId }) {
         }
     }, [blogId]);
 
-    const bufferToBase64 = (buffer) => {
-        return `data:image/jpeg;base64,${Buffer.from(buffer).toString('base64')}`;
-    };
-    const base64Image = blog?.blog_img?.data
-        ? bufferToBase64(blog?.blog_img?.data)
-        : '/images/blogs/blog-image-01.jpeg';
-
     // if (loading) return <div>Loading...</div>;
     if (error) return <div>{error}</div>;
 
@@ -56,18 +48,12 @@ export default function BlogContent({ blogId }) {
             <Navbar />
             <section className='section' style={{ backgroundColor: "white", marginTop: "-53px" }}>
                 {
-                    loading ? <FormLoader /> : (
+                    loading ? <Loader /> : (
                         <div className="single-blog-page-container">
                             <div className="single-blog-page-title">
                                 <h1>{blog.blog_title}</h1>
                             </div>
-                            {/* <div className="blog-img">
-                        <Image src={base64Image} width={800} height={345} alt='How to Clean Carpets Without Professional Help' />
-                    </div> */}
-
-                            <div className="blog-content" dangerouslySetInnerHTML={{ __html: blog.blog_content }}>
-
-                            </div>
+                            <div className="blog-content" dangerouslySetInnerHTML={{ __html: blog.blog_content }}></div>
                         </div>
                     )
                 }

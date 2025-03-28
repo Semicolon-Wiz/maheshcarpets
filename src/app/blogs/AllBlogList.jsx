@@ -7,9 +7,6 @@ import axios from 'axios';
 export default function AllBlogList() {
     const [blog, setBlog] = useState([])
     const [loading, setLoading] = useState(false);
-    const bufferToBase64 = (buffer) => {
-        return `data:image/jpeg;base64,${Buffer.from(buffer).toString('base64')}`;
-    };
     useEffect(() => {
         async function fetchBlogs() {
             setLoading(true)
@@ -29,16 +26,12 @@ export default function AllBlogList() {
             {loading ? <Loader /> : (
                 <div className="blog-container">
                     {blog?.data?.map((data, index) => {
-                        const base64Image = data.blog_img?.data
-                            ? bufferToBase64(data.blog_img.data)
-                            : '/images/blogs/blog-image-01.jpeg';
-
                         return (
                             <div className="blog-cards-container" key={index}>
                                 <div className="blog-card-body">
                                     <div className="blog-card-img">
                                         <Image
-                                            src={base64Image}
+                                            src={data.blog_img}
                                             width={400}
                                             height={163}
                                             alt='blog'

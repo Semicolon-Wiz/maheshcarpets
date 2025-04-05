@@ -154,7 +154,7 @@ export default function Footer() {
               <ul>
                 <li>
                   <i className="hgi-stroke hgi-telephone" style={{ color: "#28a745" }} />
-                  <Link href="/">
+                  <Link href="tel:+919517292555">
                     <span>+91 9517292555</span>
                   </Link>
                 </li>

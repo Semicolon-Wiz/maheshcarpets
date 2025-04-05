@@ -4,6 +4,7 @@ export async function GET() {
     if (!res.ok) {
       throw new Error(`HTTP error! status: ${res.status}`);
     }
+    
     const contentType = res.headers.get("Content-Type");
     const sitemap = await res.text();
 

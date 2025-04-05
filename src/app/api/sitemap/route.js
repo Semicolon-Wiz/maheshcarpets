@@ -8,6 +8,7 @@ import {
   shaggy,
   shaped,
 } from "@/data/productdata";
+import { getAllBlogs } from "@/lib/getAllBlogs";
 
 const BASE_URL = "https://www.maheshcarpets.com/";
 
@@ -21,16 +22,9 @@ export async function GET() {
     ...shaggy,
     ...shaped,
   ];
+  const blogs = await getAllBlogs();
 
-  // Static pages (add more if needed)
-  const staticPages = [
-    "",
-    "our-story",
-    "contact",
-    "blogs",
-    "blogs/how-to-identify-a-genuine-handmade-carpet",
-    "blogs/how-to-clean-carpets-without-professional-help",
-  ];
+  const staticPages = ["", "our-story", "contact", "blogs"];
 
   // Generate URLs for sitemap
   const urls = [
@@ -61,6 +55,19 @@ export async function GET() {
         <priority>0.8</priority>
       </url>`;
     }),
+
+    blogs.map(
+      (blog) => `
+  <url>
+    <loc>${BASE_URL}blogs/${blog.slug}</loc>
+    <lastmod>${new Date(
+      blog.updatedAt || blog.createdAt || new Date()
+    ).toISOString()}</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+`
+    ),
   ].join("\n");
 
   const sitemap = `<?xml version="1.0" encoding="UTF-8"?>

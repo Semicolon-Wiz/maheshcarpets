@@ -98,6 +98,10 @@ export default function Footer() {
                   <i className="hgi-stroke hgi-link-forward" />
                   <Link href="#compliance">Compliance</Link>
                 </li>
+                <li>
+                  <i className="hgi-stroke hgi-link-forward" />
+                  <Link href="/faq">FAQ's</Link>
+                </li>
                 {/* <li>
                   <i className="hgi-stroke hgi-link-forward" />
                   <Link href="/">Privacy & Policy</Link>

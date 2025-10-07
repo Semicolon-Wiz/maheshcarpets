@@ -15,7 +15,7 @@ export default function Ads() {
     return (
         <div className={`ads-container ${isAdsOpen ? "active-ads-container" : ""} `}>
             <div className={`ads-wraper ${isAdsOpen ? 'active-ads' : ''}`}>
-                <Image src='/images/ads.jpg' alt='Ads' width={400} height={500} />
+                <Image src='/images/ads-2.jpeg' alt='Ads' width={400} height={500} />
                 <div className="ads-close-btn" onClick={()=>setIsAdsOpen(false)}>
                     <i className="hgi hgi-stroke hgi-cancel-01"></i>
                 </div>

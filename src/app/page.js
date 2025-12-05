@@ -56,7 +56,7 @@ export default function page() {
       <Map/>
       <ContactUs />
       <Footer />
-      <Ads/>
+  {/* <Ads/> */}
     </>
   );
 }

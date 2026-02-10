@@ -35,7 +35,7 @@ export default function Navbar() {
                 Mahesh Carpets
               </a>
               <div className="blank">
-                <Image src='/images/logo/new.png' width={200} height={40} alt="logo" />
+                <Image src='/images/logo/new-2.png' width={200} height={40} alt="logo" />
               </div>
             </div>
           </div>

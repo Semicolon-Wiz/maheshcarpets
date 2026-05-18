@@ -9,7 +9,7 @@ export default function WorldMap({
 }) {
   const svgRef = useRef(null);
   const map = new DottedMap({ height: 110, grid: "diagonal" });
-  console.log(map);
+  // console.log(map);
 
   const svgMap = map.getSVG({
     radius: 0.22,

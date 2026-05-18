@@ -4,13 +4,13 @@ const HeroSection = dynamic(
   () => import("@/components/Hero_Section/HeroSection"),
   {
     loading: () => <Loader />,
-  }
+  },
 );
 const Collection = dynamic(
   () => import("@/components/Our_Collection/Collection"),
   {
     loading: () => <Loader />,
-  }
+  },
 );
 const Slider = dynamic(() => import("@/components/Slider/Slider"), {
   loading: () => <Loader />,
@@ -22,7 +22,7 @@ const Certificates = dynamic(
   () => import("@/components/Certificates/Certificates"),
   {
     loading: () => <Loader />,
-  }
+  },
 );
 const Offer = dynamic(() => import("@/components/Offer_Section/Offer"), {
   loading: () => <Loader />,
@@ -31,7 +31,7 @@ const Testimonials = dynamic(
   () => import("@/components/Testimonials/Testimonials"),
   {
     loading: () => <Loader />,
-  }
+  },
 );
 const Map = dynamic(() => import("@/components/Map/Map"), {
   loading: () => <Loader />,
@@ -53,10 +53,10 @@ export default function page() {
       <Certificates />
       <Offer />
       <Testimonials />
-      <Map/>
+      <Map />
       <ContactUs />
       <Footer />
-  {/* <Ads/> */}
+      <Ads />
     </>
   );
 }
